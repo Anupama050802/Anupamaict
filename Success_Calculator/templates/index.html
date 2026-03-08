@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Eurovision Predictor</title>
+</head>
+
+<body>
+
+<h1>Eurovision Success Calculator</h1>
+
+<form action="/predict" method="post">
+
+<label>Song In English</label>
+<select name="Song_In_English">
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<br><br>
+
+<label>Group or Solo</label>
+<select name="Group_Solo">
+<option value="Group">Group</option>
+<option value="Solo">Solo</option>
+</select>
+
+<br><br>
+
+<label>Danceability</label>
+<input type="number" step="0.01" name="danceability">
+
+<br><br>
+
+<label>Energy</label>
+<input type="number" step="0.01" name="energy">
+
+<br><br>
+
+<button type="submit">Predict</button>
+
+</form>
+
+<h2>Find Country's Best Voting Friend</h2>
+
+<form action="/voting_history" method="post">
+
+<label>Select Country</label>
+
+<select name="country">
+
+<option value="Sweden">Sweden</option>
+<option value="France">France</option>
+<option value="Italy">Italy</option>
+<option value="Germany">Germany</option>
+<option value="Spain">Spain</option>
+
+</select>
+
+<br><br>
+
+<button type="submit">Find Best Friend</button>
+
+</form>
+
+{% if voting_result %}
+<h3>{{ voting_result }}</h3>
+{% endif %}
+
+</body>
+</html>
